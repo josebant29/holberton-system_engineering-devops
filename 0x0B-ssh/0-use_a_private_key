@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #Script Connect
-ssh -i ~/.ssh/holberton ubuntu@35.196.9.108
+ssh -i ~/.ssh/holberton ubuntu@35.196.43.231
 
