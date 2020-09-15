@@ -1,4 +1,5 @@
-Host *
-     HostName 35.196.43.231
-     User ubuntu
-     IdentityFile ~/.ssh/holberton
+#!/usr/bin/env bash
+# Login from the client to the server without password
+Host * 
+    IdentityFile ~/.ssh/holberton
+
