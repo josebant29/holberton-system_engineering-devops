@@ -1,9 +1,7 @@
-# Debug web open files per user
-exec { 'fix--for-nginx':
-  environment => ['DIR=/etc/default/nginx',
-                  'OLD=ULIMIT="-n 15"',
-                  'NEW=ULIMIT="-n 15000"'],
-  command     => 'sudo sed -i "s/$OLD/$NEW/" $DIR; sudo service nginx restart',
-  path        => ['/usr/bin', '/bin'],
-  returns     => [0, 1]
-}i
+# Setting upper limit for the pinging requests
+exec { 'upperlimit' :
+  command =>  'sed -i "s/15/10000/g" /etc/default/nginx;service nginx restart',
+  path    =>  '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+  onlyif  =>  'test -e /etc/default/nginx',
+}
+
